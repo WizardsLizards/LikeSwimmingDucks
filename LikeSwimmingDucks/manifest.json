@@ -1,0 +1,10 @@
+{
+  "Name": "LikeSwimmingDucks",
+  "Author": "Expl0",
+  "Version": "1.0.0",
+  "Description": "Wanna see ducks swimming more often? Me too!",
+  "UniqueID": "Expl0.LikeSwimmingDucks",
+  "EntryDll": "LikeSwimmingDucks.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": [ "Nexus:" ]
+}
