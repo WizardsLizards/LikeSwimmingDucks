@@ -11,11 +11,16 @@ namespace LikeSwimmingDucks
         public override void Entry(IModHelper IHelper)
         {
             #region Setup
+            var csHarmony = new Harmony(this.ModManifest.UniqueID);
 
+            ObjectPatches.Initialize(this.Monitor, IHelper);
             #endregion Setup
 
             #region Harmony Patches
-
+            csHarmony.Patch(
+               original: AccessTools.Method(typeof(FarmAnimal), "behaviors"),
+               prefix: new HarmonyMethod(typeof(ObjectPatches), nameof(ObjectPatches.behaviors_Prefix))
+            );
             #endregion Harmony Patches
 
             #region Events
