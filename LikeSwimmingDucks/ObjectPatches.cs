@@ -24,11 +24,13 @@ namespace LikeSwimmingDucks
             Configuration = IHelper.ReadConfig<ModConfig>();
         }
 
-        public static void behaviors_Prefix(FarmAnimal __instance, GameTime time, GameLocation location)
+        public static bool behaviors_Prefix(FarmAnimal __instance, GameTime time, GameLocation location)
         {
+            //TODO: Reserved Tile in moddata?
+
             try
             {
-                //TODO: If tile is reserved: move to it
+                //TODO: If tile is reserved: move to it (And return false to prevent other logic from overwriting thiss)
 
                 //TODO: Also check whether a grass tile is reserved?
                 //If animal can actually swim, it is outdoors, not eating and not bedtime
@@ -71,19 +73,22 @@ namespace LikeSwimmingDucks
             {
                 IMonitor.Log($"Failed in {nameof(behaviors_Prefix)}:\n{ex}", LogLevel.Error);
             }
+            return true;
         }
 
         public static searchWaterTile()
         {
-
-        }
-
-        public static searchLandTile()
-        {
-
+            //Get all water tiles in radius that are not reserved yet, add to list (a number of times being 1 + neighboring water tiles)
+            //get a random entry from list
         }
 
         public static getTilesInWaterRadius()
+        {
+            //Already check here if tiles are watertiles?
+        }
+
+        //Same logic for land
+        public static searchLandTile()
         {
 
         }
